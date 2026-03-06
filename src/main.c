@@ -1,4 +1,5 @@
 #define _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +12,7 @@
 #include "config.h"
 #include "utils.h"
 #include "registry.h"
+#include "version.h"
 
 static void usage(void) {
     printf("pman - Project Manager\n\n");
@@ -21,6 +23,7 @@ static void usage(void) {
     printf("  status              Check Git status of all projects\n");
     printf("  prune               Remove missing projects from registry\n");
     printf("  (no command)        Launch interactive wizard\n\n");
+    printf("  -v, --version       Prints the installed version of the tool\n");
     printf("Init Options:\n");
     printf("  -d, --dir <path>    Target directory for initialization\n");
     printf("  -g, --no-git        Skip Git initialization\n");
@@ -128,6 +131,12 @@ static int handle_init(int argc, char *argv[], DInitConfig user_cfg) {
 }
 
 int main(int argc, char *argv[]) {
+    
+    if (argc > 1 && (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0)) {
+        printf("pman %s\n", PMAN_VERSION);
+        return 0;
+    }
+
     DInitConfig user_cfg = load_config();
 
     if (argc == 1) {
