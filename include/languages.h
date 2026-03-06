@@ -11,29 +11,25 @@ typedef struct {
     bool verbose;
     bool track;
     const char *project_name;
-    DInitConfig user_config;
+    PManConfig user_config;
 } ProjectConfig;
 
-typedef void (*InitFunc)(ProjectConfig cfg);
+typedef struct {
+    const char *filename;
+    const char *content;
+} FileTemplate;
 
 typedef struct {
     const char *name;
-    InitFunc init_func;
+    const char *display_name;
+    FileTemplate files[4];
+    const char *readme_template;
+    const char *init_cmds[3];
+    bool cmd_needs_project_name[3];
+    bool skip_default_git_init;
 } LanguagePreset;
 
-void init_python(ProjectConfig cfg);
-void init_c(ProjectConfig cfg);
-void init_cpp(ProjectConfig cfg);
-void init_java(ProjectConfig cfg);
-void init_go(ProjectConfig cfg);
-void init_rust(ProjectConfig cfg);
-void init_node(ProjectConfig cfg);
-void init_csharp(ProjectConfig cfg);
-void init_ruby(ProjectConfig cfg);
-void init_php(ProjectConfig cfg);
-void init_html(ProjectConfig cfg);
-void init_bash(ProjectConfig cfg);
-
+void init_language(ProjectConfig cfg, const LanguagePreset *preset);
 void init_custom(ProjectConfig cfg, const char *script_path);
 
 extern const LanguagePreset language_presets[];

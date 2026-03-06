@@ -25,7 +25,7 @@ install: all
 	sudo cp $(TARGET) /usr/local/bin/
 
 test: all
-	@$(CC) $(CFLAGS) tests/unit_tests.c src/utils.c -o unit_tests
+	@$(CC) $(CFLAGS) tests/unit_tests.c src/utils.c src/config.c src/registry.c src/languages.c -o unit_tests
 	@./unit_tests
 	@chmod +x tests/integration_tests.sh
 	@./tests/integration_tests.sh

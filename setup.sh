@@ -11,7 +11,7 @@ if [ "$LOCAL_SIG" != "$REF_SIG" ]; then
     exit 1
 fi
 
-RC_FILE="$HOME/.dinitrc"
+RC_FILE="$HOME/.pmanrc"
 CUR_AUTHOR=$(grep "author=" "$RC_FILE" 2>/dev/null | cut -d'=' -f2)
 CUR_EMAIL=$(grep "email=" "$RC_FILE" 2>/dev/null | cut -d'=' -f2)
 CUR_LICENSE=$(grep "license=" "$RC_FILE" 2>/dev/null | cut -d'=' -f2)

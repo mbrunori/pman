@@ -1,13 +1,13 @@
 #ifndef TEMPLATES_H
 #define TEMPLATES_H
 
-const char *python_main_template = 
+const char python_main_template[] = 
     "def main():\n"
-    "    print(\"Hello from DInit!\")\n\n"
+    "    print(\"Hello from PMan!\")\n\n"
     "if __name__ == \"__main__\":\n"
     "    main()\n";
 
-const char *python_gitignore_template = 
+const char python_gitignore_template[] = 
     "__pycache__/\n"
     "*.py[cod]\n"
     "*$py.class\n"
@@ -15,7 +15,7 @@ const char *python_gitignore_template =
     "venv/\n"
     "ENV/\n";
 
-const char *python_readme_template = 
+const char python_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Setup\n"
@@ -29,14 +29,14 @@ const char *python_readme_template =
     "python main.py\n"
     "```\n";
 
-const char *c_main_template = 
+const char c_main_template[] = 
     "#include <stdio.h>\n\n"
     "int main() {\n"
-    "    printf(\"Hello from DInit C project!\\n\");\n"
+    "    printf(\"Hello from PMan C project!\\n\");\n"
     "    return 0;\n"
     "}\n";
 
-const char *c_readme_template = 
+const char c_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Build & Run\n"
@@ -45,14 +45,14 @@ const char *c_readme_template =
     "./main\n"
     "```\n";
 
-const char *cpp_main_template = 
+const char cpp_main_template[] = 
     "#include <iostream>\n\n"
     "int main() {\n"
-    "    std::cout << \"Hello from DInit C++ project!\" << std::endl;\n"
+    "    std::cout << \"Hello from PMan C++ project!\" << std::endl;\n"
     "    return 0;\n"
     "}\n";
 
-const char *cpp_makefile_template = 
+const char cpp_makefile_template[] = 
     "CXX = g++\n"
     "CXXFLAGS = -Wall -Wextra -std=c++17\n\n"
     "all: main\n\n"
@@ -61,7 +61,7 @@ const char *cpp_makefile_template =
     "clean:\n"
     "\trm -f main\n";
 
-const char *cpp_readme_template = 
+const char cpp_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Build & Run\n"
@@ -70,18 +70,18 @@ const char *cpp_readme_template =
     "./main\n"
     "```\n";
 
-const char *java_main_template = 
+const char java_main_template[] = 
     "public class Main {\n"
     "    public static void main(String[] args) {\n"
-    "        System.out.println(\"Hello from DInit Java project!\");\n"
+    "        System.out.println(\"Hello from PMan Java project!\");\n"
     "    }\n"
     "}\n";
 
-const char *java_gitignore_template = 
+const char java_gitignore_template[] = 
     "*.class\n"
     "*.jar\n";
 
-const char *java_readme_template = 
+const char java_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Build & Run\n"
@@ -90,14 +90,14 @@ const char *java_readme_template =
     "java Main\n"
     "```\n";
 
-const char *go_main_template = 
+const char go_main_template[] = 
     "package main\n\n"
     "import \"fmt\"\n\n"
     "func main() {\n"
-    "    fmt.Println(\"Hello from DInit Go project!\")\n"
+    "    fmt.Println(\"Hello from PMan Go project!\")\n"
     "}\n";
 
-const char *go_readme_template = 
+const char go_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Run\n"
@@ -105,7 +105,7 @@ const char *go_readme_template =
     "go run main.go\n"
     "```\n";
 
-const char *rust_readme_template = 
+const char rust_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Build & Run\n"
@@ -113,15 +113,15 @@ const char *rust_readme_template =
     "cargo run\n"
     "```\n";
 
-const char *node_index_template = 
-    "console.log('Hello from DInit Node project!');\n";
+const char node_index_template[] = 
+    "console.log('Hello from PMan Node project!');\n";
 
-const char *node_gitignore_template = 
+const char node_gitignore_template[] = 
     "node_modules/\n"
     "dist/\n"
     ".env\n";
 
-const char *node_readme_template = 
+const char node_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Install & Run\n"
@@ -130,7 +130,7 @@ const char *node_readme_template =
     "npm start\n"
     "```\n";
 
-const char *csharp_readme_template = 
+const char csharp_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Run\n"
@@ -138,10 +138,10 @@ const char *csharp_readme_template =
     "dotnet run\n"
     "```\n";
 
-const char *ruby_main_template = 
-    "puts 'Hello from DInit Ruby project!'\n";
+const char ruby_main_template[] = 
+    "puts 'Hello from PMan Ruby project!'\n";
 
-const char *ruby_readme_template = 
+const char ruby_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Run\n"
@@ -149,12 +149,12 @@ const char *ruby_readme_template =
     "ruby main.rb\n"
     "```\n";
 
-const char *php_index_template = 
+const char php_index_template[] = 
     "<?php\n"
-    "echo \"Hello from DInit PHP project!\\n\";\n"
+    "echo \"Hello from PMan PHP project!\\n\";\n"
     "?>\n";
 
-const char *php_readme_template = 
+const char php_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Run\n"
@@ -162,42 +162,42 @@ const char *php_readme_template =
     "php index.php\n"
     "```\n";
 
-const char *html_index_template = 
+const char html_index_template[] = 
     "<!DOCTYPE html>\n"
     "<html lang=\"en\">\n"
     "<head>\n"
     "    <meta charset=\"UTF-8\">\n"
     "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-    "    <title>DInit Web Project</title>\n"
+    "    <title>PMan Web Project</title>\n"
     "    <link rel=\"stylesheet\" href=\"style.css\">\n"
     "</head>\n"
     "<body>\n"
-    "    <h1>Hello from DInit Web project!</h1>\n"
+    "    <h1>Hello from PMan Web project!</h1>\n"
     "    <script src=\"script.js\"></script>\n"
     "</body>\n"
     "</html>\n";
 
-const char *html_style_template = 
+const char html_style_template[] = 
     "body {\n"
     "    font-family: sans-serif;\n"
     "    text-align: center;\n"
     "    margin-top: 50px;\n"
     "}\n";
 
-const char *html_script_template = 
-    "console.log('Hello from DInit Web project!');\n";
+const char html_script_template[] = 
+    "console.log('Hello from PMan Web project!');\n";
 
-const char *html_readme_template = 
+const char html_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Usage\n"
     "Open `index.html` in your browser.\n";
 
-const char *bash_script_template = 
+const char bash_script_template[] = 
     "#!/bin/bash\n\n"
-    "echo \"Hello from DInit Bash project!\"\n";
+    "echo \"Hello from PMan Bash project!\"\n";
 
-const char *bash_readme_template = 
+const char bash_readme_template[] = 
     "# %s\n\n"
     "**Author:** %s (%s)\n\n"
     "## Run\n"
@@ -205,7 +205,7 @@ const char *bash_readme_template =
     "./main.sh\n"
     "```\n";
 
-const char *mit_license_template = 
+const char mit_license_template[] = 
     "MIT License\n\n"
     "Copyright (c) 2024 %s\n\n"
     "Permission is hereby granted, free of charge, to any person obtaining a copy\n"

@@ -74,7 +74,7 @@ char* get_custom_template_path(const char *lang) {
     if (!home) return NULL;
     char *path = malloc(1024);
     if (!path) return NULL;
-    snprintf(path, 1024, "%s/.config/dinit/templates/%s/init.sh", home, lang);
+    snprintf(path, 1024, "%s/.config/pman/templates/%s/init.sh", home, lang);
     struct stat st;
     if (stat(path, &st) == 0 && (st.st_mode & S_IXUSR)) return path;
     free(path);

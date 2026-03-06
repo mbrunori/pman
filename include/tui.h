@@ -4,6 +4,6 @@
 #include "languages.h"
 #include "config.h"
 
-void run_tui(DInitConfig user_cfg);
+void run_tui(PManConfig user_cfg);
 
 #endif

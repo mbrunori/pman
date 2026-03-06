@@ -18,7 +18,7 @@ static void clear_stdin(void) {
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-void run_tui(DInitConfig user_cfg) {
+void run_tui(PManConfig user_cfg) {
     printf(BOLD_CYAN "--- pman: Project Setup Wizard ---\n" RESET);
     char lang[32], name[128], buf[8];
     printf("\nLanguage: ");
@@ -70,7 +70,7 @@ void run_tui(DInitConfig user_cfg) {
     }
     for (int i = 0; i < num_language_presets; i++) {
         if (strcmp(lang, language_presets[i].name) == 0) {
-            language_presets[i].init_func(cfg);
+            init_language(cfg, &language_presets[i]);
             if (cfg.track) register_project(final_path, cfg.project_name, lang);
             return;
         }

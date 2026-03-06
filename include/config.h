@@ -8,8 +8,8 @@ typedef struct {
     char email[128];
     char license[32];
     bool verbose;
-} DInitConfig;
+} PManConfig;
 
-DInitConfig load_config(void);
+PManConfig load_config(void);
 
 #endif

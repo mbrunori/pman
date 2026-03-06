@@ -3,8 +3,8 @@
 #include <string.h>
 #include "config.h"
 
-DInitConfig load_config(void) {
-    DInitConfig cfg;
+PManConfig load_config(void) {
+    PManConfig cfg;
     strcpy(cfg.author, "Unknown Author");
     strcpy(cfg.email, "unknown@example.com");
     strcpy(cfg.license, "MIT");
@@ -14,7 +14,7 @@ DInitConfig load_config(void) {
     if (!home) return cfg;
 
     char path[512];
-    snprintf(path, sizeof(path), "%s/.dinitrc", home);
+    snprintf(path, sizeof(path), "%s/.pmanrc", home);
 
     FILE *f = fopen(path, "r");
     if (!f) return cfg;
