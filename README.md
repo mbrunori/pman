@@ -19,7 +19,7 @@ Replaces repetitive setup tasks with one command.
 - Initializes Git repositories with standard branch naming.
 - Creates virtual environments and dependency files.
 - Generates LICENSE and README files using author metadata.
-- Executes language-specific initialization (e.g., `go mod init`, `npm init`).[^1_1]
+- Executes language-specific initialization (e.g., `go mod init`, `npm init`).
 
 
 ### Centralization
@@ -33,7 +33,7 @@ Maintains a system-wide registry to audit projects across different directories.
 
 ### Extensibility
 
-Define custom bootstrapping logic by placing shell scripts in `~/.config/pman/templates/`. Scripts receive project metadata via environment variables.[^1_1]
+Define custom bootstrapping logic by placing shell scripts in `~/.config/pman/templates/`. Scripts receive project metadata via environment variables.
 
 **Example: Running `pman init c99 myproject` in terminal, showing automated Git init, file creation, and success message.**
 
