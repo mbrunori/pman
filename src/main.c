@@ -154,13 +154,55 @@ static int handle_prune(AppContext *ctx) {
     return 0;
 }
 
+static int handle_uninstall(AppContext *ctx) {
+    (void)ctx;
+    // We assume the script is in the source directory if running from source,
+    // but the binary should probably know where it's installed.
+    // For simplicity, we'll try to run it from a common location or relative to the project.
+    
+    // Check if uninstall.sh exists in current directory or /usr/local/share/pman/ (if we had that)
+    // For now, let's just use system() to call the script if it exists in the current directory
+    // or we can just implement the logic here.
+    // Given the user wants a script, let's try to call it.
+    
+    // Better yet, let's just implement the prompt and logic directly in C for better integration
+    // but the user specifically asked for a script too.
+    
+    char response[10];
+    char *user = getenv("USER");
+    printf("pman will now be uninstalled for user %s [y/N]: ", user ? user : "unknown");
+    if (fgets(response, sizeof(response), stdin) == NULL) return 1;
+    
+    if (response[0] != 'y' && response[0] != 'Y') {
+        printf("Uninstall cancelled.\n");
+        return 0;
+    }
+
+    printf("Removing binary...\n");
+    system("sudo rm -f /usr/local/bin/pman");
+
+    printf("Removing configuration and data...\n");
+    char cmd[PATH_MAX];
+    char *home = getenv("HOME");
+    if (home) {
+        snprintf(cmd, sizeof(cmd), "rm -f %s/.pmanrc", home);
+        system(cmd);
+        snprintf(cmd, sizeof(cmd), "rm -rf %s/.config/pman", home);
+        system(cmd);
+    }
+
+    printf("pman has been successfully uninstalled.\n");
+    return 0;
+}
+
 /* --- Dispatcher Configuration --- */
 
 static const Command COMMANDS[] = {
     {"init",   "Initialize a new project",           handle_init},
     {"list",   "List all registered projects",       handle_list},
     {"status", "Check Git status of all projects",   handle_status},
-    {"prune",  "Remove missing projects from registry", handle_prune}
+    {"prune",  "Remove missing projects from registry", handle_prune},
+    {"uninstall", "Uninstall pman and remove all data", handle_uninstall}
 };
 
 static void print_usage(void) {

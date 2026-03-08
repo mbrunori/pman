@@ -4,7 +4,7 @@ TARGET = pman
 SRC = src/main.c src/utils.c src/languages.c src/tui.c src/config.c src/registry.c
 OBJ = $(SRC:.c=.o)
 
-.PHONY: all clean install test setup
+.PHONY: all clean install test setup uninstall
 
 all: $(TARGET)
 
@@ -15,11 +15,15 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f src/*.o tests/*.o unit_tests $(TARGET)
+	rm -f src/*.o tests/*.o unit_tests $(TARGET) uninstall.sh
 	rm -rf test_run
 
 install: all
 	sudo cp $(TARGET) /usr/local/bin/
+
+uninstall:
+	@chmod +x uninstall.sh
+	@./uninstall.sh
 
 test: all
 	@$(CC) $(CFLAGS) tests/unit_tests.c src/utils.c src/config.c src/registry.c src/languages.c -o unit_tests
