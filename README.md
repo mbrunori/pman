@@ -62,12 +62,14 @@ Invoke: `pman init mytemplate`
 ## 📦 Installation
 
 ```bash
+git clone https://www.github.com/kianacaster/pman.git
+cd pman
 make
 make setup
 sudo make install
 ```
 
-Clone the repository first.
+
 
 ## 🚀 Usage
 
