@@ -21,16 +21,12 @@ int run_command(const char *cmd, bool verbose) {
 }
 
 int zip_file(const char *src_path, const char *dest_path) {
-
     char cmd[512];
-    snprintf(cmd, sizeof(cmd), "zip -j %s %s", dest_path, src_path);
-
+    snprintf(cmd, sizeof(cmd), "zip -r %s %s", dest_path, src_path);
     int ret = system(cmd);
-
     if (ret == 0) {
         return 0;
     }
-    
     return 1;
 }
 

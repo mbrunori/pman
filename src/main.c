@@ -249,8 +249,6 @@ static int handle_export(AppContext *ctx) {
     //the input of this command is 'pman export [flag] <project_name> <dest_path>'
     //where the flag tells how to export the project
 
-    fprintf(stderr, "we entered handle_export"); //debug, TOREMOVE
-
     if(ctx->argc <= 1) {
         printf(""); //add the help text to print
         return 0;
@@ -258,11 +256,38 @@ static int handle_export(AppContext *ctx) {
 
     const char *arg = ctx->argv[1];
     if(strcmp(arg, "-z") == 0 || strcmp(arg, "--zipped") == 0) {
-        printf("zipping the file"); //add the handle of zipping and exporting the file
+        
+        //reading the project name
+        char *project_name  = ctx->argv[2];
+        char src_path[256];
+        if(get_project_path(project_name, src_path) == 1) {
+            fprintf(stderr, "invalid project name");
+            return 1;
+        }
+
+        //reading the destination path:
+        char *dest_path = ctx->argv[3];
+        if(!is_safe_path(dest_path)) {
+            fprintf(stderr, "invalid destination path");
+            return 1;
+        }
+
+        char zip_dest[PATH_MAX];
+        snprintf(zip_dest, sizeof(zip_dest), "%s/%s.zip", dest_path, project_name);
+
+        if(zip_file(src_path, zip_dest) != 0) {
+            fprintf(stderr, "error during zipping the file\n");
+            return 1;
+        }
+
+        printf("%s correctly zipped and saved in: %s\n", project_name, dest_path);
+        return 0;
     }
 
     if(strcmp(arg, "-i") == 0 || strcmp(arg, "--info") == 0) {
+        //TODO
         printf("exporting the readme");
+        return 0;
     }
 }
 /* --- Dispatcher Configuration --- */
